@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>弹出框拖拽</title>
+		<style type="text/css">
+			body{
+				height:3000px;
+			}
+			#btn{
+				width:100px;
+				line-height:34px;
+				background:#f60;
+				color:#fff;
+				font-weight: 600;
+				font-size: 16px;
+				border-radius: 6px;
+			}
+			#mask{
+				width:100%;
+				height:100%;
+				background:#000;
+				opacity:.5;
+				filter:alpha(opacity=50);
+				position:fixed;
+				top:0;
+				right:0;
+				bottom:0;
+				left:0;
+				display: block;
+			}
+			#box{
+				width:380px;
+				height:260px;
+				background:#ccc;
+				position: fixed;
+				z-index:1998;
+				display: block;
+				border-radius: 3px;
+			}
+			.mouse_head{
+				width:100%;
+				line-height:40px;
+				background:#3385ff;
+			}
+			.mouse_head a.close{
+				color:#f0f0f0;
+				position:absolute;
+				right:10px;
+				cursor: pointer;
+			}
+			.txt{
+				text-align: center;
+				margin-top: 80px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--按钮-->
+		<input type="button" id="btn" value="弹出"/>
+		<!--遮罩层-->
+		<div id="mask"></div>
+		<!--弹出框大盒子-->
+		<div id="box">
+			<!--弹出框上方-->
+			<div class="mouse_head">
+				这里是用来实现拖拽的
+				<!--关闭按钮-->
+				<a href="javascript:;" class="close">关闭X</a>
+			</div>
+			<!--弹出框下方内容-->
+			<div class="txt"><a href="#">点击查看>></a></div>
+		</div>
+		<script type="text/javascript" src="js/drag.js"></script>
+		<script type="text/javascript">
+		
+		</script>
+	</body>
+</html>
