@@ -27,7 +27,7 @@
 				right:0;
 				bottom:0;
 				left:0;
-				display: block;
+				display: none;
 			}
 			#box{
 				width:380px;
@@ -35,7 +35,7 @@
 				background:#ccc;
 				position: fixed;
 				z-index:1998;
-				display: block;
+				display: none;
 				border-radius: 3px;
 			}
 			.mouse_head{
@@ -73,7 +73,38 @@
 		</div>
 		<script type="text/javascript" src="js/drag.js"></script>
 		<script type="text/javascript">
-		
+			//获取页面元素
+			var oBtn = document.getElementById("btn");
+			var oMask = document.getElementById("mask");
+			var oBox = document.getElementById("box");
+			var oClose = byClassName("close")[0];
+			//兼容：通过class名获取元素对象的集合
+			function byClassName(className){
+				if(document.getElementsByClassName){return document.getElementsByClassName(className);
+				}else{
+					var arr = [];
+					var eles = document.getElementsByTagName("*");
+					for(var i = 0,len = eles.length;i < len;i ++){
+						if(eles[i].className == className){
+							arr.push(arr[i]);
+						}
+					}
+					return arr;
+				}
+			}
+			//点击按钮弹出框,遮罩层显示
+			oBtn.onclick = function(){
+				oMask.style.display = "block";
+				oBox.style.display = "block";
+				//初始位置
+				oBox.style.left = document.documentElement.clientWidth/2 - oBox.offsetWidth/2 + "px";
+				oBox.style.top = document.documentElement.clientHeight/2 - oBox.offsetHeight/2 + "px";
+			}
+			//点击关闭按钮遮罩层，弹出框隐藏
+			oClose.onclick = function(){
+				oMask.style.display = "none";
+				oBox.style.display = "none";
+			}
 		</script>
 	</body>
 </html>
